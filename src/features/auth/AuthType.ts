@@ -3,18 +3,19 @@ export interface LogType{
     password:string;
 }
 export interface RegisterType{
-    username:string;
-    password:string;
     email:string;
+    password:string;
+    username:string;
     role:string;
 }
 export interface authResponse{
     data: any;
     accessToken: string;
-    user:{
-        id:string;
-        username: string;
-        password:string;
-    }
+    // user:{
+    //     id:string;
+    //     username: string;
+    //     password:string;
+
+    // }
 
 }

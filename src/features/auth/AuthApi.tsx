@@ -15,11 +15,19 @@ export const LoginApi = async (credentials: LogType): Promise<authResponse> => {
     },
   };
 
+  
   try {
     const { data } = await axios.request<authResponse>(options);
-    localStorage.setItem('authToken',data?.data?.accessToken)
+    
+    if (data?.data?.accessToken) {
+      localStorage.setItem("authToken", data.data.accessToken);
+    } else {
+      console.warn("⚠️ No token received in response!");
+    }
+    
     return data;
-  } catch (error) {
+  }
+  catch (error) {
     console.error("Login failed:", error);
     throw error;
   }
