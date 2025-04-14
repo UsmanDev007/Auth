@@ -23,7 +23,7 @@ export const routes: any = [
       { path: "/sign-up", element: <SignUp /> },
       {
         element: <PrivateRoute />,
-        children: [{ path: "/profile", element: <Profile /> }],
+        children: [{ path: "/profile", element: <Profile/> }],
       },
     ],
   },

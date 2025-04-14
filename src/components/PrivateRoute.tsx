@@ -1,5 +1,7 @@
+import { Navigate, Outlet, } from "react-router-dom"
+import { UseAuth } from "../hooks/UseAuth";
+
 export const PrivateRoute=()=>{
-    return(
-     <></>
-    )
+    const token=localStorage.getItem('authToken')
+    return token ? <Outlet/>: <Navigate to ='/login'/>
 }

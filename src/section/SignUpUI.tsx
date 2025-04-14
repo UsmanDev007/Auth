@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Typography, Box, Paper } from "@mui/material";
 import { motion } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import CustomButton from "../components/Button";
 import { UseAuth } from "../hooks/UseAuth";
 
