@@ -51,7 +51,6 @@ export const RegisterUser = async (
 
   try {
     const { data } = await axios.request<authResponse>(options);
-    console.log(data);
     return data;
   } catch (error) {
     console.error(error);
@@ -67,7 +66,7 @@ export const LogOutUser=async():Promise<void>=>{
       
       try {
         const { data } = await axios.request(options);
-        console.log(data);
+  
       } catch (error) {
         console.error(error);
       }
@@ -86,7 +85,6 @@ export const CurrentUser = async (): Promise<any> => {
 
   try {
     const { data } = await axios.request(options);
-    console.log(data);
     return data;
   } catch (error) {
     console.error('Error fetching current user:', error);
