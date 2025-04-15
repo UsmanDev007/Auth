@@ -1,5 +1,6 @@
 import axios from "axios";
 import { authResponse, LogType, RegisterType } from "./AuthType";
+import { getToken } from "./AuthUtils";
 
 export const LoginApi = async (credentials: LogType): Promise<authResponse> => {
   const options = {
@@ -24,8 +25,8 @@ export const LoginApi = async (credentials: LogType): Promise<authResponse> => {
     } else {
       console.warn("⚠️ No token received in response!");
     }
-    
     return data;
+    
   }
   catch (error) {
     console.error("Login failed:", error);
@@ -71,3 +72,24 @@ export const LogOutUser=async():Promise<void>=>{
         console.error(error);
       }
 }
+export const CurrentUser = async (): Promise<any> => {
+  const Token = getToken();
+
+  const options = {
+    method: 'GET',
+    url: 'https://api.freeapi.app/api/v1/users/current-user',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${Token}`,
+    },
+  };
+
+  try {
+    const { data } = await axios.request(options);
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching current user:', error);
+    throw error;
+  }
+};

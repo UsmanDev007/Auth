@@ -17,13 +17,13 @@ export const routes: any = [
   { path: "/", element: <Navigate to="/login" /> },
   {
     path: "/",
-    element: <MainLayout />,
+    element: <MainLayout/>,
     children: [
-      { path: "/login", element: <Login /> },
-      { path: "/sign-up", element: <SignUp /> },
+      { path: "/login", element: <Login/> },
+      { path: "/sign-up", element: <SignUp/> },
       {
-        element: <PrivateRoute />,
-        children: [{ path: "/profile", element: <Profile/> }],
+        element: <PrivateRoute/>,
+        children: [{ path: "profile", element: <Profile/> }],
       },
     ],
   },

@@ -1,5 +1,5 @@
-import { useMutation } from "@tanstack/react-query";
-import { LoginApi,LogOutUser,RegisterUser } from "../features/auth/AuthApi";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { LoginApi,LogOutUser,RegisterUser,CurrentUser } from "../features/auth/AuthApi";
 import { getToken } from "../features/auth/AuthUtils";
 import { useNavigate } from "react-router-dom";
 export const UseAuth=()=>{
@@ -23,5 +23,11 @@ export const UseAuth=()=>{
         }
     })
     const isAuthenticated =!!getToken();
-    return {loginMuation,SignUpMuation,LogoutMutation,isAuthenticated}
+    const CurrentUserMutation=useQuery({
+        queryKey: ['current-user'],
+        queryFn: CurrentUser,
+        enabled:isAuthenticated
+    })
+    
+    return {loginMuation,SignUpMuation,LogoutMutation,isAuthenticated,CurrentUserMutation}
 }
