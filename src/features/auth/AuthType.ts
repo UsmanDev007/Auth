@@ -17,5 +17,7 @@ export interface authResponse{
     //     password:string;
 
     // }
-
+}
+export interface resetPassword{
+    newPassword:string;
 }

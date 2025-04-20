@@ -66,6 +66,7 @@ export const LogOutUser=async():Promise<void>=>{
       
       try {
         const { data } = await axios.request(options);
+        return data
   
       } catch (error) {
         console.error(error);

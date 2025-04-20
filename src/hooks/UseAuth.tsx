@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { LoginApi,LogOutUser,RegisterUser,CurrentUser } from "../features/auth/AuthApi";
+import { LoginApi,LogOutUser,RegisterUser,CurrentUser} from "../features/auth/AuthApi";
 import { getToken } from "../features/auth/AuthUtils";
 import { useNavigate } from "react-router-dom";
 export const UseAuth=()=>{
@@ -20,6 +20,7 @@ export const UseAuth=()=>{
         mutationFn:LogOutUser,
         onSuccess:()=>{
             localStorage.removeItem('authToken')
+            navigate('/login')
         }
     })
     const isAuthenticated =!!getToken();

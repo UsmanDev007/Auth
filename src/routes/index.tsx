@@ -21,6 +21,7 @@ export const routes: any = [
     children: [
       { path: "/login", element: <Login/> },
       { path: "/sign-up", element: <SignUp/> },
+      
       {
         element: <PrivateRoute/>,
         children: [{ path: "profile", element: <Profile/> }],

@@ -44,7 +44,7 @@ const LoginUI:React.FC = () => {
           </Typography>
           <TextField label="Username"  fullWidth margin="normal" variant="outlined" onChange={(e)=>setusername(e.target.value)} />
           <TextField label="Password" fullWidth margin="normal" variant="outlined" type="password" onChange={(e)=>setPassword(e.target.value)} />
-          <Link to="#" style={{ display: "block", marginTop: "10px", marginBottom: "10px",textDecoration:'none',color:"#2a2a2a",textAlign:'left',marginLeft:'5px', }}>
+          <Link to="/reset" style={{ display: "block", marginTop: "10px", marginBottom: "10px",textDecoration:'none',color:"#2a2a2a",textAlign:'left',marginLeft:'5px', }}>
             Forgot password?
           </Link>
           <CustomButton name="Login" onClick={handlelogin}>
